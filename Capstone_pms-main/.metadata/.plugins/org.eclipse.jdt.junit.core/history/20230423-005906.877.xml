@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="g3-patient-info-service (1)" project="g3-patient-info-service" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="com.capstone.application.PatientInfoServiceApplicationTests" time="0.216" displayname="PatientInfoServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceApplicationTests]">
+    <testcase name="countPatientTest" classname="com.capstone.application.PatientInfoServiceApplicationTests" time="0.129" displayname="countPatientTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceApplicationTests]/[method:countPatientTest()]"/>
+    <testcase name="findingPatientById" classname="com.capstone.application.PatientInfoServiceApplicationTests" time="0.049" displayname="findingPatientById()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceApplicationTests]/[method:findingPatientById()]"/>
+    <testcase name="getAllPatients" classname="com.capstone.application.PatientInfoServiceApplicationTests" time="0.014" displayname="getAllPatients()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceApplicationTests]/[method:getAllPatients()]"/>
+    <testcase name="updatePatient" classname="com.capstone.application.PatientInfoServiceApplicationTests" time="0.016" displayname="updatePatient()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceApplicationTests]/[method:updatePatient()]"/>
+  </testsuite>
+  <testsuite name="com.capstone.application.PatientInfoServiceAplicationTest" time="0.656" displayname="PatientInfoServiceAplicationTest" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]">
+    <testcase name="PatientList" classname="com.capstone.application.PatientInfoServiceAplicationTest" time="0.394" displayname="PatientList()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]/[method:PatientList()]"/>
+    <testcase name="patientCount" classname="com.capstone.application.PatientInfoServiceAplicationTest" time="0.023" displayname="patientCount()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]/[method:patientCount()]"/>
+    <testcase name="creatingPatientInfo" classname="com.capstone.application.PatientInfoServiceAplicationTest" time="0.192" displayname="creatingPatientInfo()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]/[method:creatingPatientInfo()]"/>
+    <testcase name="patientbyId" classname="com.capstone.application.PatientInfoServiceAplicationTest" time="0.035" displayname="patientbyId()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]/[method:patientbyId()]"/>
+  </testsuite>
+</testrun>

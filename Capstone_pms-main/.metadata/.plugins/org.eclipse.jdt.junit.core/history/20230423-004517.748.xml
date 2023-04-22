@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AuthenticationControllerTest.updateStatusById" project="g3-authentication-service" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.capstone.application.AuthenticationControllerTest" time="0.433" displayname="AuthenticationControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AuthenticationControllerTest]">
+    <testcase name="updateStatusById" classname="com.capstone.application.AuthenticationControllerTest" time="0.433" displayname="updateStatusById()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AuthenticationControllerTest]/[method:updateStatusById()]"/>
+  </testsuite>
+</testrun>

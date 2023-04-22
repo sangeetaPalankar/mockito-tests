@@ -1,0 +1,131 @@
+package com.capstone.application;
+
+import java.text.ParseException;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.capstone.application.exception.PhysicianAvailabilityException;
+import com.capstone.application.model.PhysicianAvailabiityModel;
+import com.capstone.application.repository.PhysicianAvailabilityRepository;
+import com.capstone.application.service.PhysicianAvailabilityService;
+import com.capstone.application.service.impl.PhysicianAvailabilityServiceImpl;
+
+@SpringBootTest
+public class PhysicianAvailabilityServiceTest {
+	
+	@InjectMocks
+	private PhysicianAvailabilityServiceImpl physicianAvailabilityServiceImpl;
+	
+	private PhysicianAvailabilityService physicianAvailabilityService;
+
+	@Mock
+	private PhysicianAvailabilityRepository physicianAvailabilityRepository;
+	
+	PhysicianAvailabiityModel physician1 = new PhysicianAvailabiityModel("john.sharma@gmail.com","John","Sharma","Pathologist","20-14-2023","30-04-2023",true); 
+	PhysicianAvailabiityModel physician2 = new PhysicianAvailabiityModel("aayansh.revature@gmail.com","Aayansh","Patil","Orthopedist","25-14-2023","29-04-2023",true); 
+
+	@Test
+	public void setTodaysAvailbilityTest() {}
+
+	
+	@Test
+	public void  findAllTest() throws PhysicianAvailabilityException, ParseException {
+		List<PhysicianAvailabiityModel> physicianList = new ArrayList<PhysicianAvailabiityModel>();
+		physicianList.add(physician1);
+		physicianList.add(physician2);
+		
+		when(physicianAvailabilityRepository.findAll()).thenReturn(physicianList);
+		assertEquals(physicianList,physicianAvailabilityServiceImpl.findAll());
+	}
+	
+	
+	@Test
+	public void findDoctorInfoByEmailIdTest() throws PhysicianAvailabilityException {
+		Optional<PhysicianAvailabiityModel> physician1 = Optional.ofNullable(new PhysicianAvailabiityModel("aarush.revature@gmail.com","Aarush","Sharma","Pathologist","20-14-2023","30-04-2023",true)); 
+		PhysicianAvailabiityModel physician2 = new PhysicianAvailabiityModel("aayansh.revature@gmail.com","Aayansh","Patil","Orthopedist","25-14-2023","29-04-2023",true); 
+		PhysicianAvailabiityModel physician3 = new PhysicianAvailabiityModel("aarush.revature@gmail.com","Aarush","Sharma","Pathologist","20-14-2023","30-04-2023",true); 
+
+		when(physicianAvailabilityRepository.findById("aarush.revature@gmail.com")).thenReturn(physician1);
+		when(physicianAvailabilityServiceImpl.findDoctorInfoByEmailId("aarush.revature@gmail.com")).thenReturn(physician1);
+		assertEquals(physician1,physicianAvailabilityServiceImpl.findDoctorInfoByEmailId("aarush.revature@gmail.com"));
+	}
+	
+	@Test
+	public void findDoctorInfoByEmailIdTestException() throws PhysicianAvailabilityException {
+		
+		PhysicianAvailabiityModel physician1 = new PhysicianAvailabiityModel(); 
+		PhysicianAvailabiityModel physician2 = new PhysicianAvailabiityModel("aayansh.revature@gmail.com","Aayansh","Patil","Orthopedist","25-14-2023","29-04-2023",true); 
+		PhysicianAvailabiityModel physician3 = new PhysicianAvailabiityModel("aarush.revature@gmail.com","Aarush","Sharma","Pathologist","20-14-2023","30-04-2023",true); 
+		when(physicianAvailabilityRepository.findById("aarush.revature@gmail.com")).thenReturn(null);
+		
+		physicianAvailabilityServiceImpl.findDoctorInfoByEmailId("aarush.revature@gmail.com");
+
+	}
+	
+	@Test
+	public void countDoctorsTest() throws PhysicianAvailabilityException {
+		List<PhysicianAvailabiityModel> physicianList = new ArrayList<PhysicianAvailabiityModel>();
+		physicianList.add(physician1);
+		physicianList.add(physician2);
+		
+		when(physicianAvailabilityRepository.count()).thenReturn((long) physicianList.size());
+		assertEquals(2,physicianAvailabilityServiceImpl.countDoctors());
+	}
+	
+
+	
+	@Test
+	public void deletePhysicianTest() throws PhysicianAvailabilityException  {
+		String id ="john.sharma@gmail.com";
+		List<PhysicianAvailabiityModel> list= new ArrayList<>();
+		list.add(physician1);
+		
+		when(physicianAvailabilityRepository.findById(anyString())).thenReturn(Optional.of(physician1));
+		doNothing().when(physicianAvailabilityRepository).deleteById(anyString());
+		assertEquals(physicianAvailabilityServiceImpl.deletePhysician(id), true);
+		
+	}
+	
+	@Test
+	void updateTest() throws PhysicianAvailabilityException {
+		PhysicianAvailabiityModel updatephysician = new PhysicianAvailabiityModel("john.sharma@gmail.com","Rushi","Sharma","Pathologist","20-04-2023","30-04-2023",true); 
+		List<PhysicianAvailabiityModel>list=new ArrayList<>();
+		list.add(updatephysician);
+		when(physicianAvailabilityRepository.findAll()).thenReturn(list);
+		when(physicianAvailabilityRepository.save(updatephysician)).thenReturn(updatephysician);
+		
+		
+		assertEquals(physicianAvailabilityServiceImpl.update(updatephysician),updatephysician);
+		
+		
+	}
+	
+	@Test
+	void findAllPhysicianOnDateTest() throws ParseException {
+		PhysicianAvailabiityModel updatephysician = new PhysicianAvailabiityModel("john.sharma@gmail.com","Rushi","Sharma","Pathologist","20-04-2023","30-04-2023",true); 
+		List<PhysicianAvailabiityModel>list=new ArrayList<>();
+		list.add(updatephysician);
+		when(physicianAvailabilityRepository.findAll()).thenReturn(list);
+		
+		
+		assertEquals(physicianAvailabilityServiceImpl.findAllPhysicianOnDate("23-04-2023"),list);
+		
+		
+	}
+}

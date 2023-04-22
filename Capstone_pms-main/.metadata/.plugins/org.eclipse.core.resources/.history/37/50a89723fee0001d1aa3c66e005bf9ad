@@ -1,0 +1,199 @@
+package com.capstone.application;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.capstone.application.exception.AppointmentServiceException;
+import com.capstone.application.model.Appointment;
+import com.capstone.application.repository.AppointmentRepository;
+import com.capstone.application.service.impl.AppointmentServiceImpl;
+
+@ExtendWith(MockitoExtension.class)
+public class AppointmentServiceApplicationTest {
+
+@InjectMocks
+private AppointmentServiceImpl appointmentServiceImpl;
+
+@Mock
+private AppointmentRepository appointmentRepository;
+
+
+
+private Appointment appointment;
+
+@BeforeEach
+void setup() {
+appointment=new Appointment(1,"abcd","xyz","fever","12-03-2023","Accepted",1,"abcd","xyz","miss","abcd@gmail.com","10-03-2023");
+}
+
+@Test
+public void getAllAppointmentByDateByAccpetanceTest() throws AppointmentServiceException {
+Appointment appointment2=new Appointment(2,"abcd","xyz","fever","12-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023");
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+appointmentList.add(appointment2);
+when(appointmentRepository.findByDateAndAcceptance("12-03-2023", "Accepted")).thenReturn(appointmentList);
+assertEquals(2,appointmentServiceImpl.findAppointmentByDate("12-03-2023", "Accepted").size());
+
+}
+
+@Test
+public void insertAppointmentTest() throws AppointmentServiceException {
+when(appointmentRepository.save(appointment)).thenReturn(appointment);
+assertEquals(appointment,appointmentServiceImpl.saveAppointment(appointment));
+}
+
+@Test
+public void getAllAppointmentByPateintIdTest() throws AppointmentServiceException {
+Appointment appointment2=new Appointment(2,"abcd","xyz","fever","12-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023");
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+appointmentList.add(appointment2);
+when(appointmentRepository.findAllAppointmentsByPatientId(1)).thenReturn(appointmentList);
+assertEquals(2,appointmentServiceImpl.findAllAppointmentsByPatientId(1).size());
+
+}
+
+
+@Test
+public void findAppointmentsByAppointmentIdTest() throws AppointmentServiceException {
+Appointment appointment2=new Appointment(2,"abcd","xyz","fever","12-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023");
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+when(appointmentRepository.findAppointmentByAppointmentId(1)).thenReturn(appointmentList);
+assertEquals(appointmentList.size(),appointmentServiceImpl.findAppointmentsByAppointmentId(1).size());
+
+
+}
+
+@Test
+public void findByAppointmentByPEmailandDateTest() throws AppointmentServiceException {
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+String email = appointment.getPhysicianEmail();
+String date = appointment.getDate();
+String acceptance ="Accepted";
+when(appointmentRepository.findByEmailandDate(email,date,acceptance)).thenReturn(appointmentList);
+assertEquals(appointmentList,appointmentServiceImpl.findByAppointmentByPEmailandDate(email,date,acceptance));
+
+
+}
+
+@Test
+public void findAppointmentByDateTest() throws AppointmentServiceException {
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+String date = appointment.getDate();
+String acceptance ="Accepted";
+when(appointmentRepository.findByDateAndAcceptance(date,acceptance)).thenReturn(appointmentList);
+assertEquals(appointmentList,appointmentServiceImpl.findAppointmentByDate(date,acceptance));
+
+
+}
+
+
+@Test
+public void findByAcceptedAppointmentTest() throws AppointmentServiceException {
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+when(appointmentRepository.findByAcceptance("Accepted")).thenReturn(appointmentList);
+assertEquals(appointmentList,appointmentServiceImpl.findByAcceptedAppointment("Accepted"));
+
+}
+
+@Test
+public void countAppointmentsTest() {
+Appointment appointment2=new Appointment(2,"abcd","xyz","fever","12-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023");
+Appointment appointment3=new Appointment(3,"abcd","xyz","fever","12-03-2023","Accepted",3,"abcd","xyz","miss","abcd@gmail.com","10-03-2023");
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+appointmentList.add(appointment2);
+appointmentList.add(appointment3);
+when(appointmentRepository.count()).thenReturn((long) appointmentList.size());
+assertEquals(3,appointmentServiceImpl.countAppointments());
+}
+
+@Test
+void deleteMovie() throws AppointmentServiceException {
+int appoitmentId = 1;
+List<Appointment>list=new ArrayList<>();
+list.add(appointment);
+
+when(appointmentRepository.findById(anyInt())).thenReturn(Optional.of(appointment));
+doNothing().when(appointmentRepository).deleteById(anyInt());
+assertEquals(appointmentServiceImpl.deleteAppointment(appoitmentId),true);
+}
+
+@Test
+public void findByAppointmentByPEmailTest() throws AppointmentServiceException {
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+String email = appointment.getPhysicianEmail();
+String acceptance ="Accepted";
+when(appointmentRepository.findByEmail(email,acceptance)).thenReturn(appointmentList);
+assertEquals(appointmentList,appointmentServiceImpl.findByAppointmentByPEmail(email,acceptance));
+
+
+}
+
+
+@Test
+public void findByAppointmentByIdTest() throws AppointmentServiceException {
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+when(appointmentRepository.findByPatientId(1)).thenReturn(appointmentList);
+assertEquals(appointmentList,appointmentServiceImpl.findByAppointmentById(1));
+}
+
+@Test
+public void findPreviousAppointmentByPatientIdTest() throws AppointmentServiceException {
+Appointment appointment2=new Appointment(2,"abcd","xyz","fever","14-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023");
+List<Appointment> appointmentList= new ArrayList<Appointment>();
+appointmentList.add(appointment);
+appointmentList.add(appointment2);
+when(appointmentRepository.findByPatientId(1)).thenReturn(appointmentList);
+System.out.println("hdsyvgyfhlk"+appointmentRepository.findPreviousAppointmentById(1));
+// assertEquals(appointment2,appointmentServiceImpl.findPreviousAppointmentByPatientId(1));
+}
+
+
+@Test
+public void updateByID() throws AppointmentServiceException {
+	Optional<Appointment> status=Optional.of(new Appointment(2,"abcd","xyz","fever","14-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023"));
+	when(appointmentRepository.findById(2)).thenReturn(status);
+	doNothing().when(appointmentRepository).update(anyInt(),anyString());
+	doNothing().when(appointmentServiceImpl).updateByID(anyInt(),anyString());
+
+//	assertEquals(appointment2,appointmentServiceImpl.update(appointment2));
+
+}
+
+@Test
+public void update() throws AppointmentServiceException {
+	Appointment appointment2=new Appointment(2,"abcd","xyz","fever","14-03-2023","Accepted",1,"abcd","xyz","miss","xyz@gmail.com","10-03-2023");
+	when(appointmentRepository.save(appointment2)).thenReturn(appointment2);
+	when(appointmentServiceImpl.update(appointment2)).thenReturn(appointment2);
+	assertEquals(appointment2,appointmentServiceImpl.update(appointment2));
+
+}
+
+}

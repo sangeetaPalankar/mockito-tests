@@ -1,0 +1,71 @@
+package com.capstone.application;
+
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import com.capstone.application.controller.AuthenticationServiceController;
+import com.capstone.application.model.Patient;
+import com.capstone.application.service.PatientAuthenticationService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
+public class AuthenticationControllerTest {
+	
+	@InjectMocks
+	AuthenticationServiceController authenticationServiceController;
+	
+	@MockBean
+	PatientAuthenticationService patientAuthenticationService;
+	
+	
+	 @Autowired
+	  private WebApplicationContext webApplicationContext;
+	  private MockMvc mockMvc;
+
+	  
+	@Autowired
+	private ObjectMapper objectMapper;
+	
+	@BeforeEach
+	void setup() {
+
+		
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+	}
+	
+	
+	@Test
+	void login() throws JsonProcessingException, Exception {
+		Optional<Patient> p1 = Optional.of( new Patient());
+		when(patientAuthenticationService.patientLogin(anyString(),anyString())).thenReturn(p1);
+		
+		this.mockMvc.perform(post("http://localhost:9005/api/v1/patient/login")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(p1)))
+		.andExpect(status().isOk());
+		
+	}
+	
+	
+
+
+}

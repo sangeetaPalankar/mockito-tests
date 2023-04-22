@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="g3-appointment-service" project="g3-appointment-service" tests="27" started="27" failures="0" errors="2" ignored="0">
+  <testsuite name="com.capstone.application.AppointmentApplicationTests" time="0.792" displayname="AppointmentApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]">
+    <testcase name="AcceptedAppointmentByEmailandDate" classname="com.capstone.application.AppointmentApplicationTests" time="0.346" displayname="AcceptedAppointmentByEmailandDate()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:AcceptedAppointmentByEmailandDate()]"/>
+    <testcase name="pendingAppointmentByEmail" classname="com.capstone.application.AppointmentApplicationTests" time="0.032" displayname="pendingAppointmentByEmail()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:pendingAppointmentByEmail()]"/>
+    <testcase name="previousAppointment" classname="com.capstone.application.AppointmentApplicationTests" time="0.03" displayname="previousAppointment()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:previousAppointment()]"/>
+    <testcase name="updatedPhysicianAvailabilitys1" classname="com.capstone.application.AppointmentApplicationTests" time="0.05" displayname="updatedPhysicianAvailabilitys1()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:updatedPhysicianAvailabilitys1()]"/>
+    <testcase name="updatedPhysicianAvailabilitys" classname="com.capstone.application.AppointmentApplicationTests" time="0.095" displayname="updatedPhysicianAvailabilitys()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:updatedPhysicianAvailabilitys()]"/>
+    <testcase name="allAppointmentsForPatientId" classname="com.capstone.application.AppointmentApplicationTests" time="0.028" displayname="allAppointmentsForPatientId()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:allAppointmentsForPatientId()]"/>
+    <testcase name="appointmentsByAppointmentId" classname="com.capstone.application.AppointmentApplicationTests" time="0.029" displayname="appointmentsByAppointmentId()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:appointmentsByAppointmentId()]"/>
+    <testcase name="appointmetForPatientId" classname="com.capstone.application.AppointmentApplicationTests" time="0.03" displayname="appointmetForPatientId()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:appointmetForPatientId()]"/>
+    <testcase name="AcceptedAppointmentByDate" classname="com.capstone.application.AppointmentApplicationTests" time="0.022" displayname="AcceptedAppointmentByDate()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:AcceptedAppointmentByDate()]"/>
+    <testcase name="updatePrescription" classname="com.capstone.application.AppointmentApplicationTests" time="0.018" displayname="updatePrescription()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:updatePrescription()]"/>
+    <testcase name="deletePrescriptionById" classname="com.capstone.application.AppointmentApplicationTests" time="0.015" displayname="deletePrescriptionById()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:deletePrescriptionById()]"/>
+    <testcase name="rejectAppointment" classname="com.capstone.application.AppointmentApplicationTests" time="0.025" displayname="rejectAppointment()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:rejectAppointment()]"/>
+    <testcase name="acceptedAppointmentForNurse" classname="com.capstone.application.AppointmentApplicationTests" time="0.016" displayname="acceptedAppointmentForNurse()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:acceptedAppointmentForNurse()]"/>
+    <testcase name="appointmentCount" classname="com.capstone.application.AppointmentApplicationTests" time="0.017" displayname="appointmentCount()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentApplicationTests]/[method:appointmentCount()]"/>
+  </testsuite>
+  <testsuite name="com.capstone.application.AppointmentServiceApplicationTest" time="0.237" displayname="AppointmentServiceApplicationTest" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]">
+    <testcase name="countAppointmentsTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.147" displayname="countAppointmentsTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:countAppointmentsTest()]"/>
+    <testcase name="getAllAppointmentByDateByAccpetanceTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.003" displayname="getAllAppointmentByDateByAccpetanceTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:getAllAppointmentByDateByAccpetanceTest()]"/>
+    <testcase name="deleteMovie" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.007" displayname="deleteMovie()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:deleteMovie()]"/>
+    <testcase name="findByAppointmentByPEmailandDateTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.004" displayname="findByAppointmentByPEmailandDateTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findByAppointmentByPEmailandDateTest()]"/>
+    <testcase name="updateTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.028" displayname="updateTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:updateTest()]">
+      <error>org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+Unfinished stubbing detected here:
+-&gt; at com.capstone.application.AppointmentServiceApplicationTest.updateTest(AppointmentServiceApplicationTest.java:162)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed
+&#13;
+	at com.capstone.application.AppointmentServiceApplicationTest.updateTest(AppointmentServiceApplicationTest.java:162)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)&#13;
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)&#13;
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)&#13;
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)&#13;
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)&#13;
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:95)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:91)&#13;
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:60)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByAppointmentByIdTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.003" displayname="findByAppointmentByIdTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findByAppointmentByIdTest()]"/>
+    <testcase name="getAllAppointmentByPateintIdTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.003" displayname="getAllAppointmentByPateintIdTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:getAllAppointmentByPateintIdTest()]"/>
+    <testcase name="findByAppointmentByPEmailTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.003" displayname="findByAppointmentByPEmailTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findByAppointmentByPEmailTest()]"/>
+    <testcase name="insertAppointmentTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.0" displayname="insertAppointmentTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:insertAppointmentTest()]"/>
+    <testcase name="findByAcceptedAppointmentTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.0" displayname="findByAcceptedAppointmentTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findByAcceptedAppointmentTest()]"/>
+    <testcase name="findAppointmentsByAppointmentIdTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.0" displayname="findAppointmentsByAppointmentIdTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findAppointmentsByAppointmentIdTest()]"/>
+    <testcase name="findPreviousAppointmentByPatientIdTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.0" displayname="findPreviousAppointmentByPatientIdTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findPreviousAppointmentByPatientIdTest()]">
+      <error>org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+Unnecessary stubbings detected.
+Clean &amp; maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -&gt; at com.capstone.application.AppointmentServiceApplicationTest.findPreviousAppointmentByPatientIdTest(AppointmentServiceApplicationTest.java:185)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.&#13;
+	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:186)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachCallbacks$12(TestMethodTestDescriptor.java:260)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$13(TestMethodTestDescriptor.java:276)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$14(TestMethodTestDescriptor.java:276)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAllAfterMethodsOrCallbacks(TestMethodTestDescriptor.java:275)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:259)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:144)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)&#13;
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:95)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:91)&#13;
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:60)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findAppointmentByDateTest" classname="com.capstone.application.AppointmentServiceApplicationTest" time="0.0" displayname="findAppointmentByDateTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AppointmentServiceApplicationTest]/[method:findAppointmentByDateTest()]"/>
+  </testsuite>
+</testrun>

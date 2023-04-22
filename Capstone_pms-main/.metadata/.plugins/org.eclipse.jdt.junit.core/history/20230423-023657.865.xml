@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PatientInfoServiceAplicationTest.putPatient" project="g3-patient-info-service" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.capstone.application.PatientInfoServiceAplicationTest" time="0.828" displayname="PatientInfoServiceAplicationTest" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]">
+    <testcase name="putPatient" classname="com.capstone.application.PatientInfoServiceAplicationTest" time="0.828" displayname="putPatient()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PatientInfoServiceAplicationTest]/[method:putPatient()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,93 @@
+package com.capstone.application;
+
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.capstone.application.dto.PatientDto;
+import com.capstone.application.model.Patient;
+import com.capstone.application.repository.PatientAuthenticationRepository;
+import com.capstone.application.service.impl.PatientAuthenticationServiceImpl;
+
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
+class AuthenticationServiceApplicationTests {
+
+	
+	@Mock
+	private ModelMapper modelmapper;
+	
+	@Mock 
+	private PatientAuthenticationRepository authRepo;
+	@Mock
+	private PatientAuthenticationServiceImpl authService;
+	
+	@InjectMocks
+	private PatientAuthenticationServiceImpl patientAuthenticationServiceImpl;
+	
+	
+//	@BeforeEach void setup()
+//	{
+//		this.authService=new PatientAuthenticationServiceImpl(authRepo);
+//	}
+	
+	@Test
+	void patientLogin() {
+		
+		Optional<Patient> patient1 =Optional.of(new Patient(1, "olivia@gmail.com", "Ms","Olivia","Rodrigo", "26-03-1999",
+				"7454529637", "1534", "F", "Bangalore"));
+		
+		
+		when(authRepo.authenticateByEmailandPassword(anyString(),anyString())).thenReturn(patient1);
+		when(patientAuthenticationServiceImpl.patientLogin(anyString(),anyString())).thenReturn(patient1);
+		patientAuthenticationServiceImpl.patientLogin("olivia@gmail.com","1534");
+		
+	}
+	
+	
+	
+	@Test
+	public void createPatient() {
+		PatientDto patientDto=new PatientDto();
+		patientDto.setTitle("Ms");
+		patientDto.setEmail("billie@gmail.com");
+		patientDto.setFirstName("Billie");
+		patientDto.setLastName("Eilish");
+		patientDto.setDob("23-06-1999");
+		patientDto.setContactNumber("584829637");
+		patientDto.setGender("F");
+		patientDto.setPassword("1234");
+		patientDto.setAddress("Pune");
+		Patient patient=modelmapper.map(patientDto, Patient.class);
+    	when(authRepo.save(patient)).thenReturn(patient);
+		patientAuthenticationServiceImpl.createPatient(patientDto);
+
+	}
+
+	@Test
+	void updatepassword() {
+		doNothing().when(authRepo).updatePassword(anyString(),anyString());
+		patientAuthenticationServiceImpl.updatepassword("olivia@gmail.com","1534");
+			
+	}
+	
+	@Test
+	void checkEmailAlreadyExist() {
+		when(authRepo.existEmail(anyString())).thenReturn("taylor@gmail.com");
+//		when(patientAuthenticationServiceImpl.checkEmailAlreadyExist(anyString())).thenReturn(true);
+		patientAuthenticationServiceImpl.checkEmailAlreadyExist("olivia@gmail.com");
+		
+	}
+	
+
+}

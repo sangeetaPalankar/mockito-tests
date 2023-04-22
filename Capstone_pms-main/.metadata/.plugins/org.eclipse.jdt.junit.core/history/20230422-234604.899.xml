@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AuthenticationServiceApplicationTests.checkEmailAlreadyExist" project="g3-authentication-service" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.capstone.application.AuthenticationServiceApplicationTests" time="0.171" displayname="AuthenticationServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AuthenticationServiceApplicationTests]">
+    <testcase name="checkEmailAlreadyExist" classname="com.capstone.application.AuthenticationServiceApplicationTests" time="0.171" displayname="checkEmailAlreadyExist()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.AuthenticationServiceApplicationTests]/[method:checkEmailAlreadyExist()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PhysicianAvailabilityServiceTest.updateTest" project="g3-physician-availability-service" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.capstone.application.PhysicianAvailabilityServiceTest" time="0.143" displayname="PhysicianAvailabilityServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PhysicianAvailabilityServiceTest]">
+    <testcase name="updateTest" classname="com.capstone.application.PhysicianAvailabilityServiceTest" time="0.143" displayname="updateTest()" uniqueid="[engine:junit-jupiter]/[class:com.capstone.application.PhysicianAvailabilityServiceTest]/[method:updateTest()]"/>
+  </testsuite>
+</testrun>
